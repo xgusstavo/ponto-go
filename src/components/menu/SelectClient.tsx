@@ -26,6 +26,8 @@ export function SelectClient({
       pl={5}
       borderRight={border}
       bg={background}
+      transition={".3s"}
+      _hover={{ bg: "gray.300", cursor: "pointer", borderRight: "4px" }}
     >
       <Image src={icon} alt="icon" />
       {menu}

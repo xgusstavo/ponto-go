@@ -1,6 +1,16 @@
-import { Button, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Heading,
+  Text,
+  useMediaQuery,
+  VStack,
+} from "@chakra-ui/react";
+import { IoPersonAddSharp } from "react-icons/io5";
 
 export function ClientList() {
+  const [isLargerThan750] = useMediaQuery("(min-width: 750px)");
+
   return (
     <Flex w={"100%"} justify={"space-between"} align={"center"} p={5}>
       <VStack alignItems={"start"}>
@@ -14,14 +24,14 @@ export function ClientList() {
 
       <Button
         height="40px"
-        width="200px"
+        width={isLargerThan750 ? "200px" : "50px"}
         bg={"primary.100"}
         color={"white"}
         fontWeight={600}
-        fontSize={"md"}
+        fontSize={isLargerThan750 ? "md" : "lg"}
         _hover={{ bg: "primary.200" }}
       >
-        + Cadastrar cliente
+        {isLargerThan750 ? "+ Cadastrar cliente" : <IoPersonAddSharp />}
       </Button>
     </Flex>
   );

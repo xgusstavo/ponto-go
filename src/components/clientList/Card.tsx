@@ -12,7 +12,7 @@ export function Card({ name, email, number }: CardProps) {
   return (
     <Flex
       bg={"gray.100"}
-      w={350}
+      w={"370px"}
       p={5}
       borderRadius={15}
       direction={"column"}

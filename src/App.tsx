@@ -1,18 +1,13 @@
-import { Card } from "./components/cards/Card";
-import { Header } from "./components/commons/Header";
-import {
-  Flex,
-  Grid,
-  GridItem,
-  HStack,
-  SimpleGrid,
-  VStack,
-} from "@chakra-ui/react";
+import { Flex, Grid, GridItem, useMediaQuery } from "@chakra-ui/react";
+import { Header } from "./components/Header";
 import { ClientList } from "./components/clientList/ClientList";
+import { Card } from "./components/clientList/Card";
 import { MenuSide } from "./components/menu/MenuSide";
-import { BoxFixed } from "./components/box/BoxFixed";
+import { BoxFixed } from "./components/menu/BoxFixed";
 
 function App() {
+  const [isLargerThan750] = useMediaQuery("(min-width: 750px)");
+
   return (
     <div>
       <Grid
@@ -32,7 +27,11 @@ function App() {
           <ClientList />
         </GridItem>
         <GridItem area={"main"} w={"100%"} pb={10}>
-          <Flex wrap={"wrap"} gap={5}>
+          <Flex
+            wrap={"wrap"}
+            gap={5}
+            direction={isLargerThan750 ? "row" : "column"}
+          >
             <Card
               name="Filipe Xavier"
               email="Xavier@email.com"

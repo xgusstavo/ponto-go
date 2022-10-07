@@ -1,20 +1,20 @@
 import {
   Flex,
   Heading,
-  Text,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
   MenuGroup,
-  MenuOptionGroup,
   MenuDivider,
   Button,
+  useMediaQuery,
 } from "@chakra-ui/react";
+import { AiOutlineMenu } from "react-icons/ai";
 import { IoPersonCircle } from "react-icons/io5";
 
 export function Header() {
+  const [isLargerThan750] = useMediaQuery("(min-width: 750px)");
   return (
     <Flex
       align={"center"}
@@ -26,6 +26,23 @@ export function Header() {
       w={"100%"}
       zIndex={1}
     >
+      <Menu>
+        <MenuButton
+          display={isLargerThan750 ? "none" : "flex"}
+          as={Button}
+          bg={"primary.100"}
+          color={"white"}
+          fontSize={"2xl"}
+          _hover={{ bg: "primary.100" }}
+        >
+          <AiOutlineMenu />
+        </MenuButton>
+        <MenuList>
+          <MenuItem>Administradores</MenuItem>
+          <MenuItem>Clientes</MenuItem>
+          <MenuItem>Colaboradores</MenuItem>
+        </MenuList>
+      </Menu>
       <Heading
         fontSize={30}
         fontWeight={700}
@@ -34,7 +51,6 @@ export function Header() {
       >
         Ponto Go
       </Heading>
-
       <Menu>
         <MenuButton as={Button} colorScheme="primary.100" fontSize={50}>
           <IoPersonCircle />

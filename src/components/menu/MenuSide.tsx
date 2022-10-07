@@ -1,10 +1,13 @@
-import { Button, Flex, Text, VStack } from "@chakra-ui/react";
+import { Button, Flex, useMediaQuery } from "@chakra-ui/react";
 import { IoMdArrowBack } from "react-icons/io";
-import { SelectClient } from "../buttonClient/SelectClient";
+import { SelectClient } from "./SelectClient";
 
 export function MenuSide() {
+  const [isLargerThan750] = useMediaQuery("(min-width: 750px)");
+
   return (
     <Flex
+      display={isLargerThan750 ? "flex" : "none"}
       direction={"column"}
       w={220}
       top={0}
